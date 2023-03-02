@@ -15,7 +15,7 @@ class EmpolyeeFormRequest extends FormRequest
     }
 
     /**
-    * @return array<string, mixed>
+    * @return array
     */
     public function rules(): array
     {
@@ -23,14 +23,17 @@ class EmpolyeeFormRequest extends FormRequest
             'password' => 'required|min:8',
             'name' => 'required',
             'sex' => 'required',
-            'age' => 'required|numeric|between:0,150',
+            'age' => 'required|numeric|between:15,130',
             'address' => 'required',
             'department' => 'required',
             'division' => 'required',
             'hire_date' => 'required|date',
-            ];
+        ];
     }
 
+    /**
+    * @return array
+    */
     public function messages(): array
     {
         return [
@@ -40,7 +43,7 @@ class EmpolyeeFormRequest extends FormRequest
             'sex.required' => '性別を入力してください。',
             'age.required' => '年齢を入力してください。',
             'age.numeric' => '年齢は半角数字で入力してください。',
-            'age.between' => '年齢は0~150の間で入力してください。',
+            'age.between' => '年齢は15~130の間で入力してください。',
             'address.required' => '住所を入力してください。',
             'department.required' => '所属部署を入力してください。',
             'division.required' => '所属課を入力してください。',
